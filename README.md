@@ -11,6 +11,12 @@ Kelompok C03:
 * [wget](#wget)
 * [zip](#zip)
 ----------------------------------------------------------------
+## Note
+# Kendala & Keterangan
+* Semua kodingan merupakan hasil implementasi dari source yang sudah ada
+* Masih belum mengerti mengenai XV6 dan cara kerjanya
+* Seluruh sumber sudah tertera di README.
+----------------------------------------------------------------
 # cd
    > Source Code: [cd.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/cd.c)
 #
