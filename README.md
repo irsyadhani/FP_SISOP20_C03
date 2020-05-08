@@ -14,6 +14,10 @@ Kelompok C03:
 # cd
    > Source Code: [cd.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/cd.c)
 #
+   _**Keterangan:**_
+* Program ini diimplementasikan dari Stack Overflow.
+   > Copyright : https://stackoverflow.com/questions/16094814/implementing-cd-system-call-using-c-if-condition
+#
 
 # head
    > Source Code: [head.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/head.c)
