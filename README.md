@@ -33,7 +33,8 @@ Kelompok C03:
 #
    _**Keterangan:**_
 Program ini diimplementasikan dari Stack Overflow. 
-Copyright : https://stackoverflow.com/questions/7057520/emulating-find-command-in-c
+#
+   > Copyright : https://stackoverflow.com/questions/7057520/emulating-find-command-in-c
 #
 
 # wget
