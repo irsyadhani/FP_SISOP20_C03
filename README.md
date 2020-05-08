@@ -32,8 +32,7 @@ Kelompok C03:
    > Source Code: [find.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/find.c)
 #
    _**Keterangan:**_
-#
-Program ini diimplementasikan dari Stack Overflow. 
+* Program ini diimplementasikan dari Stack Overflow. 
 #
    > Copyright : https://stackoverflow.com/questions/7057520/emulating-find-command-in-c
 #
