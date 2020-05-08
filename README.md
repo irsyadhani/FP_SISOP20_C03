@@ -12,7 +12,7 @@ Kelompok C03:
 * [zip](#zip)
 ----------------------------------------------------------------
 ## Note
-# Kendala & Keterangan
+### Kendala & Keterangan
 * Semua kodingan merupakan hasil implementasi dari source yang sudah ada
 * Masih belum mengerti mengenai XV6 dan cara kerjanya
 * Seluruh sumber sudah tertera di README.
