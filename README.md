@@ -4,7 +4,7 @@ Kelompok C03:
 * _Reihan Nanda Ramadhan (05111840000132)_
 
 ----------------------------------------------------------------
-## List Command
+## List Command:
 * [cd](#cd)
 * [find](#find)
 * [head](#head)
