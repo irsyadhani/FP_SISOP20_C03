@@ -12,23 +12,14 @@ Kelompok C03:
 * [zip](#zip)
 ----------------------------------------------------------------
 # cd
-   _**Soal:**_
-* cd
-#
    > Source Code: [cd.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/cd.c)
 #
 
 # head
-   _**Soal:**_
-* head
-#
    > Source Code: [head.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/head.c)
 #
 
 # find
-   _**Soal:**_
-* find
-#
    > Source Code: [find.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/find.c)
 #
    _**Keterangan:**_
@@ -38,14 +29,12 @@ Kelompok C03:
 #
 
 # wget
-   _**Soal:**_
-* wget
-#
    > Source Code: [wget.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/wget.c)
 #
-
+https://github.com/unimonkiez/c-linux-example/blob/master/src/wget.c
+#
 # zip
-   _**Soal:**_
-* zip
 #
    > Source Code: [zip.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/zip.c)
+#
+ https://github.com/zhaoyuhang/THSS14-XV6/blob/master/xv6/zip.c
