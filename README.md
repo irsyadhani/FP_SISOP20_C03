@@ -6,8 +6,8 @@ Kelompok C03:
 ----------------------------------------------------------------
 ## Soal
 * [cd](#cd)
-* [head](#head)
 * [find](#find)
+* [head](#head)
 * [wget](#wget)
 * [zip](#zip)
 ----------------------------------------------------------------
@@ -26,14 +26,6 @@ Kelompok C03:
    > Copyright : https://stackoverflow.com/questions/16094814/implementing-cd-system-call-using-c-if-condition
 #
 
-# head
-   > Source Code: [head.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/head.c)
-#
-   _**Keterangan:**_
-* Program ini diimplementasikan dari Stack Overflow.
-#
-   > Copyright : https://stackoverflow.com/questions/47041443/unix-head-command-implementation-in-c-fails-on-larger-lines
-
 # find
    > Source Code: [find.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/find.c)
 #
@@ -41,6 +33,15 @@ Kelompok C03:
 * Program ini diimplementasikan dari Stack Overflow. 
 #
    > Copyright : https://stackoverflow.com/questions/7057520/emulating-find-command-in-c
+#
+
+# head
+   > Source Code: [head.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/head.c)
+#
+   _**Keterangan:**_
+* Program ini diimplementasikan dari Stack Overflow.
+#
+   > Copyright : https://stackoverflow.com/questions/47041443/unix-head-command-implementation-in-c-fails-on-larger-lines
 #
 
 # wget
