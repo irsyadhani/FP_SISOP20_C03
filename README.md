@@ -36,10 +36,16 @@ Kelompok C03:
 # wget
    > Source Code: [wget.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/wget.c)
 #
-https://github.com/unimonkiez/c-linux-example/blob/master/src/wget.c
+ _**Keterangan:**_
+* Program ini diimplementasikan dari Github. 
 #
+> Copyright : https://github.com/unimonkiez/c-linux-example/blob/master/src/wget.c
+#
+
 # zip
-#
    > Source Code: [zip.c](https://github.com/irsyadhani22/FP_SISOP20_C03/blob/master/zip.c)
 #
- https://github.com/zhaoyuhang/THSS14-XV6/blob/master/xv6/zip.c
+ _**Keterangan:**_
+* Program ini diimplementasikan dari Github. 
+#
+> Copyright : https://github.com/zhaoyuhang/THSS14-XV6/blob/master/xv6/zip.c
