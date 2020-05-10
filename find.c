@@ -1,49 +1,116 @@
-/* Cara Kerja Program: find namaFile */
+#include "types.h"
+#include "stat.h"
+#include "user.h"
+#include "fcntl.h"
+#include "fs.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#define M_DEFAULT 0
+#define M_NAME 1
+#define M_PATH 2
 
-#define BUFSIZE 1000
+char *getFileName(char *s) {
+	char *filename = s;
+	char *temp = s;
+	int i;
 
-int main(void) {
-  int pfd[2], n;
-  char str[BUFSIZE + 1];
-  
-/* Bila Pipe gagal */
-  if (pipe(pfd) < 0) {
-    printf("PIPE ERROR!\n");
-    exit(-1);
-  }
+	for (i = strlen(temp); i >= 0; i--) {
+		if (temp[i] == '/') {
+			filename = &temp[i+1];
+			break;
+		}
+	}
 
-  n = fork();
-/* Bila Fork gagal */
-  if (n < 0) {
-    printf("FORK ERROR!\n");
-    exit(-2);
-  } else if (n == 0) {
-    close(pfd[0]);
+	return filename;
+}
 
-    dup2(pfd[1], 1);
-    close(pfd[1]);
-    
-/* Fungsi exec untuk find */
-    execlp("find", "find", "filename", (char *) 0);
-    printf("Oups, execlp failed.  Exiting\n"); /* Bagian ini akan dibaca oleh Parent */
-    exit(-1); /* Mencegah execlp gagal, terutama pada loop nanti */
-  } else {
-    close(pfd[1]);
+void find(char  *dir, int mode, char *key) {
+	int fd;
+	char buf[512], *p;
+	struct stat st;
+	struct dirent de;
 
-    while ((n = read(pfd[0], str, BUFSIZE)) > 0) {
-      str[n] = '\0';
-      printf("%s", str);
-    }
+	if ((fd = open(dir, O_RDONLY)) < 0) {
+		printf(1, "find: cannot open %s\n", dir);
+		return;
+	}
 
-    close(pfd[0]);
-    wait(&n); /* Mencegah zombie process. */
+	if (fstat(fd, &st) < 0) {
+		printf(1, "find: cannot stat %s\n", dir);
+		return;
+	}
 
-    if (n != 0) {
-       printf("FIND ERROR!\n");
-    }
-  }
+	if (st.type == T_FILE) {
+		switch (mode) {
+			case M_NAME:
+				if (!strcmp(getFileName(buf), getFileName(key)))
+					printf(1, "%s\n", dir);
+				break;
+			case M_PATH:
+				if (!strcmp(buf, key))
+					printf(1, "%s\n", dir);
+				break;
+			default:
+				printf(1, "%s\n", dir);
+				break;
+		}
+	} else if (st.type == T_DIR) {
+		switch (mode) {
+			case M_NAME:
+				if (!strcmp(getFileName(buf), getFileName(key)))
+					printf(1, "%s\n", dir);
+				break;
+			case M_PATH:
+				if (!strcmp(buf, key))
+					printf(1, "%s\n", dir);
+				break;
+			default:
+				printf(1, "%s\n", dir);
+				break;
+		}
+		
+		strcpy(buf, dir);
+		p = buf+strlen(buf);
+		*p = '/';
+		p++;
+
+		while (read(fd, &de, sizeof(de)) == sizeof(de)) {
+			if(de.inum == 0 || !strcmp(de.name, ".") || !strcmp(de.name, ".."))
+				continue;
+
+			memmove(p, de.name, strlen(de.name));
+			p[strlen(de.name)] = 0;
+
+			fstat(open(buf, O_RDONLY), &st);
+			if (st.type == T_FILE)
+				switch (mode) {
+					case M_NAME:
+						if (!strcmp(getFileName(buf), getFileName(key)))
+							printf(1, "%s\n", buf);
+						break;
+					case M_PATH:
+						if (!strcmp(buf, key))
+							printf(1, "%s\n", buf);
+						break;
+					default:
+						printf(1, "%s\n", buf);
+						break;
+				}
+			else if (st.type == T_DIR) {
+				find(buf, mode, key);
+			}
+		}
+	}
+}
+
+int main(int argc, char *argv[]) {
+	if (argc < 2)
+		find(".", M_DEFAULT, "");
+	else if (!strcmp(argv[2], "-name"))
+		find(argv[1], M_NAME, argv[3]);
+	else if (!strcmp(argv[2], "-path"))
+		find(argv[1], M_PATH, argv[3]);
+	else
+		find(argv[1], M_DEFAULT, "");
+
+	exit();
 }
